@@ -57,8 +57,21 @@ namespace Cas23
              * stringa iste dužine. Funkciju napraviti u klasi Strings.
              */
 
-            var diff = Strings.NumDiffs("abcdefgh", "abecdfhh");
-            Console.WriteLine("Broj razlika je {0}", diff);
+            //var diff = Strings.NumDiffs("abcdefgh", "abecdfhh");
+            //Console.WriteLine("Broj razlika je {0}", diff);
+
+
+            /*
+             * Zadatak 5.
+             * 
+             * Srednja (prosečna) vrednost
+             * 
+             * Napisati funkciju koja će kao ulazni parametar
+             * imati niz brojeva. Vratiti srednju vrednost brojeva.
+             */
+            var numbers = new int[] { 5, 6, 5, 6 };
+            var prosek = GetAverage(numbers);
+            Console.WriteLine(prosek);
 
             Console.ReadKey();
         }
@@ -96,5 +109,54 @@ namespace Cas23
             return diff;
         }
 
+        public static int Prosec(params int[] niz)
+        {
+            int sum = 0;
+
+            foreach (var item in niz)
+            {
+                sum += item;
+            }
+
+            return sum / niz.Length;
+        }
+
+        static int Avg(int[] niz)
+        {
+            int sum = 0;
+            int a = 0;
+            for (int i = 0; i < niz.Length; i++)
+            {
+                sum = sum + niz[i];
+                a = sum / niz.Length;
+            }
+            return a;
+
+        }
+
+        static double GetAverage(int[] numbers)
+        {
+            double zbir = 0;
+            int ukupno = numbers.Length;
+            for (var i = 0; i < numbers.Length; i++)
+            {
+                zbir += numbers[i];
+            }
+            double prosek = zbir / ukupno;
+            return prosek;
+        }
+
+        public static int ProsecnaVrednost(params int[] nizBrojeva)
+        {
+            int sumaBrojeva = 0;
+
+            foreach (int item in nizBrojeva)
+            {
+                sumaBrojeva += item;
+            }
+
+            return sumaBrojeva / nizBrojeva.Length;
+        }
     }
+
 }
