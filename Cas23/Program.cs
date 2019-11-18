@@ -17,9 +17,9 @@ namespace Cas23
              * imati niz brojeva. Vratiti najveći broj iz niza.
              */
 
-            //int[] numbers1 = new int[] { 1, 5, 9, 2, 6 };
-            //int max = FindLargestNum(numbers1);
-            //Console.WriteLine("1. Najveci u nizu je {0}", max);
+            int[] numbers1 = new int[] { 1, 5, 9, 2, 6 };
+            int max = FindLargestNum(numbers1);
+            Console.WriteLine("1. Najveci u nizu je {0}", max);
 
             /*
              * Zadatak 2.
@@ -30,9 +30,9 @@ namespace Cas23
              * i najmanjeg broja.
              */
 
-            //int[] numbers2 = new int[] { -20, 16, 48, 5, -15, 2, 1, 9, 16, -43 };
-            //int diff = DiffMinMax(numbers2);
-            //Console.WriteLine("2. Razlika max-min je {0}", diff);
+            int[] numbers2 = new int[] { -20, 16, 48, 5, -15, 2, 1, 9, 16, -43 };
+            int diff = DiffMinMax(numbers2);
+            Console.WriteLine("2. Razlika max-min je {0}", diff);
 
             /*
              * Zadatak 3.
@@ -43,9 +43,9 @@ namespace Cas23
              * najdužeg stringa. Funkciju treba napraviti u klasi Strings.
              */
 
-            //var niz = new string[] { "sto", "stolica", "prozor", "vrata", "neki jako dugacak string" };
-            //int x = Strings.FindLongest(niz);
-            //Console.WriteLine(x);
+            var niz = new string[] { "sto", "stolica", "prozor", "vrata", "neki jako dugacak string" };
+            int x = Strings.FindLongest(niz);
+            Console.WriteLine("3. Najduzi string ima duzinu od {0} karaktera.", x);
 
             /*
              * Zadatak 4.
@@ -57,13 +57,12 @@ namespace Cas23
              * stringa iste dužine. Funkciju napraviti u klasi Strings.
              */
 
-            //var diff = Strings.NumDiffs("abcdefgh", "abecdfhh");
-            //Console.WriteLine("Broj razlika je {0}", diff);
+            var diff4 = Strings.NumDiffs("abcdefgh", "abecdfhh");
+            Console.WriteLine("4. Broj razlika je {0}", diff4);
 
 
             /*
              * Zadatak 5.
-             * 
              * Srednja (prosečna) vrednost
              * 
              * Napisati funkciju koja će kao ulazni parametar
@@ -71,9 +70,51 @@ namespace Cas23
              */
             var numbers = new int[] { 5, 6, 5, 6 };
             var prosek = GetAverage(numbers);
-            Console.WriteLine(prosek);
+            Console.WriteLine("5. Srednja vrednost zadatih brojeva je {0}", prosek);
+
+            /*
+             * Zadatak 6.
+             * Broj razmaka
+             * 
+             * Napisati funkciju koja će kao ulazni parametar
+             * imati string. Vratiti broj razmaka (space) koji se
+             * nalaze u stringu. String treba uzeti kao unos od
+             * korisnika. Funkciju napisati u klasi Strings
+             */
+            Console.WriteLine("Unesi string (pritisni enter za kraj unosa)...");
+            var unos = Console.ReadLine();
+            var brojRazmaka = Strings.NumSpaces(unos);
+            Console.WriteLine("6. Broj space karaktera u tvom stringu je: {0}", brojRazmaka);
 
             Console.ReadKey();
+        }
+
+        /*
+         * Jos jedan nacin kako se moze proveriti da li je karakter
+         * razmak (space), koriscenje char.IsWhiteSpace() metoda.
+        */
+        public static int Spejsovi(string rec)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < rec.Length; i++)
+            {
+                if (char.IsWhiteSpace(rec[i]))
+                {
+                    sum++;
+                }
+            }
+            return sum;
+        }
+
+        /*
+         * Jos jedan od nacina, koriscenje Count() metoda koji
+         * pripada objektima tipa string. Count uzima za parametar
+         * koji tip karaktera brojimo, u nasem slucaju char.IsWhiteSpace
+         */
+        public static int Razmaci(string recenica)
+        {
+            return recenica.Count(char.IsWhiteSpace);
         }
 
         static int FindLargestNum(int[] numbers)

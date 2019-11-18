@@ -37,5 +37,18 @@ namespace Cas23
 
             return brRazlika;
         }
+
+        internal static int NumSpaces(string unos)
+        {
+            var brojRazmaka = 0;
+            for (var i = 0; i < unos.Length; i++)
+            {
+                if (unos[i] == ' ')
+                {
+                    brojRazmaka++;
+                }
+            }
+            return brojRazmaka;
+        }
     }
 }
